@@ -6,7 +6,8 @@
 const { Client, Authenticator } = require('minecraft-launcher-core');
 const launcher = new Client();
 const val = require(getAppDataPath('.eronix/userProfil.json')); 
-
+    
+function play() {
 let opts = {
     clientPackage: null,
     authorization: Authenticator.getAuth(`${val.pseudo}`, val.token.value),
@@ -25,8 +26,6 @@ let opts = {
         port: "25565"
     }
 }
-
-function play() {
     launcher.launch(opts);
 }
 
