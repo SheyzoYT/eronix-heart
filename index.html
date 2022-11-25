@@ -5,12 +5,12 @@
 <script>
 const { Client, Authenticator } = require('minecraft-launcher-core');
 const launcher = new Client();
-const val = require(getAppDataPath('.eronix/userProfil.json')); 
+    const token = "zdgiozdngoizdngzeiongzeoignzeg";
     
 function play() {
 let opts = {
     clientPackage: null,
-    authorization: Authenticator.getAuth(`${val.pseudo}`, val.token.value),
+    authorization: Authenticator.getAuth("OxymaxDev", token.value),
     root: getAppDataPath(".eronix"),
     version: {
         number: "1.12.2",
