@@ -1,1 +1,35 @@
 <h1>Hello Auto Launcher Eronix !</h1>
+
+<button onclick="play()">PLAY</button>
+
+<script>
+const { Client, Authenticator } = require('minecraft-launcher-core');
+const launcher = new Client();
+const val = require(getAppDataPath('.eronix/userProfil.json')); 
+
+let opts = {
+    clientPackage: null,
+    authorization: Authenticator.getAuth(`${val.pseudo}`, val.token.value),
+    root: getAppDataPath(".eronix"),
+    version: {
+        number: "1.12.2",
+        type: "release",
+    },
+    forge: "forge.jar",
+    memory: {
+        max: `5G`,
+        min: "1G"
+    },
+    server: {
+        host: "localhost",
+        port: "25565"
+    }
+}
+
+function play() {
+    launcher.launch(opts);
+}
+
+launcher.on('debug', (e) => console.log(e));
+launcher.on('data', (e) => console.log(e));
+</script>
